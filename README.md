@@ -48,6 +48,7 @@ program → declaration* EOF ;
 
 ### Declarations
 
+```bash
 declaration     → classDecl
                 | funDecl
                 | varDecl
@@ -56,9 +57,11 @@ declaration     → classDecl
 classDecl       → "class" IDENTIFIER ( "<" IDENTIFIER )? "{" function* "}" ;
 funDecl         → "fun" function ;
 varDecl         → "var" IDENTIFIER ( "=" expression )? ";" ;
+```
 
 ### Statements
 
+```bash
 statement       → exprStmt
                 | forStmt
                 | ifStmt
@@ -74,9 +77,11 @@ printStmt       → "print" expression ";" ;
 returnStmt      → "return" expression? ";" ;
 whileStmt       → "while" "(" expression ")" statement ;
 block           → "{" declaration* "}" ;
+```
 
 ### Expressions
 
+```bash
 expression      → assignment ; 
 
 assignment      → ( call "." )? IDENTIFIER "=" assignment
@@ -94,9 +99,12 @@ call            → primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
 primary         → "true" | "false" | "nil" | "this"
                 | NUMBER | STRING | IDENTIFIER | "(" expression ")"
                 | "super" "." IDENTIFIER ;
+```
 
 ### Utility Rules
 
+```bash
 function        → IDENTIFIER "(" parameters? ")" block ;
 parameters      → IDENTIFIER ( "," IDENTIFIER )* ;
 arguments       → expression ( "," IDENTIFIER )* ;
+```
